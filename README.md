@@ -34,6 +34,8 @@
       - [理论学习篇](#理论学习篇)
         - [经典论文研读篇](#经典论文研读篇)
         - [【关于 文本匹配】 那些的你不知道的事](#关于-文本匹配-那些的你不知道的事)
+          - [【关于 Bert to 文本匹配】 那些的你不知道的事](#关于-bert-to-文本匹配-那些的你不知道的事)
+          - [【关于 DL to 文本匹配】 那些的你不知道的事](#关于-dl-to-文本匹配-那些的你不知道的事)
   - [参考资料](#参考资料)
 
 ## 介绍
@@ -59,6 +61,8 @@
 
 
 ##### [【关于 文本匹配】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study_text_match/tree/master/text_match_study/) 
+
+###### [【关于 Bert to 文本匹配】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study_text_match/tree/master/text_match_study/) 
 
 - [【关于 SimCSE】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_text_match/tree/master/text_match_study/SimCSE/) **【推荐阅读】**
   - 论文：SimCSE: Simple Contrastive Learning of Sentence Embeddings
@@ -96,6 +100,47 @@
 - [【关于 语义相似度匹配任务中的 BERT】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_text_match/tree/master/text_match_study/bert_similairity/)  **【推荐阅读】**
   - 阅读理由：BERT 在 语义相似度匹配任务 中的应用，可以由很多种方式，然而，你真的了解这些方式的区别和优缺点么？
   - 动机：BERT 在 语义相似度匹配任务 中的应用，可以常用 Sentence Pair Classification Task：使用 [CLS]、cosine similairity、sentence/word embedding、siamese network 方法，那么哪种是最佳的方式呢？你是否考虑过呢?
+- [【关于 DPR】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_text_match/tree/master/QA_study/DPR_emnlp2020/)
+  - 论文名称：Dense Passage Retrieval for Open-Domain Question Answering
+  - 会议：EMNLP2020
+  - 阅读理由：双塔模型 第一次 引入 Bert 
+  - 动机：双塔模型 第一次 引入 Bert 
+  - 论文方法：
+    - 双塔模型，主要idea在于双塔使用了两个独立的BERT
+- [【关于 Poly-Encoders】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_text_match/tree/master/QA_study/Poly-Encoders_ICLR2020/)
+  - 论文名称：Dense Passage Retrieval for Open-Domain Question Answering
+  - 会议：ICLR2020
+  - 动机：
+    - 为了解决上文提到的不能离线索引的问题，并兼顾性能；
+    - 如何让query和doc进行更为深入的交互？
+  - 论文方法：
+    - 本质：双塔模型。
+    - 主要创新点：
+      - 如何让query和doc进行更为深入的交互？
+      - 就是在query embedding的计算上，通过训练m个独立的encoder，把query编码成m个向量并求和，再在最后一层进行交互。
+- [【关于 DC-BERT】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_text_match/tree/master/QA_study/SIGIR2020_DCBert/)
+  - 论文名称：DC-BERT : DECOUPLING QUESTION AND DOCUMENT FOR EFFICIENT CONTEXTUAL ENCODING
+  - 阅读理由：Bert 在 QA 上面的应用
+  - 动机：Bert 无法处理传入问题的高吞吐量，每个问题都有大量检索到的文档；
+  - 论文方法：具有双重BERT模型的解耦上下文编码框架：
+    - 一个在线BERT，仅对问题进行一次编码；
+    - 一个正式的BERT，对所有文档进行预编码并缓存其编码；
+- [【关于 SIGIR2020】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_text_match/tree/master/QA_study/SIGIR2020/)
+  - 论文名称：ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT
+  - 会议：ICLR2020
+  - 动机：
+  - 论文方法：
+    - 对query与doc在token-level的编码进行匹配计算，并通过MaxSim算符取出最大值并求和作为最终的分数
+- [【关于 tBERT 】那些你不知道的事](https://github.com/km1994/nlp_paper_study_text_match/tree/master/QA_study/SIGIR2020_DCBert/)
+   - 论文：tBERT: Topic Models and BERT Joining Forces for Semantic Similarity Detection
+   - 会议：ACL2020
+   - 论文地址：https://www.aclweb.org/anthology/2020.acl-main.630/
+   - 论文代码：https://github.com/wuningxi/tBERT
+   - 动机：未存在将主题模型和BERT结合的方法。 语义相似度检测是自然语言的一项基本任务理解。添加主题信息对于以前的特征工程语义相似性模型和神经网络模型都是有用的其他任务。在那里目前还没有标准的方法将主题与预先训练的内容表示结合起来比如 BERT。
+   - 方法：我们提出了一种新颖的基于主题的基于BERT的语义相似度检测体系结构，并证明了我们的模型在不同的英语语言数据集上的性能优于强神经基线。我们发现在BERT中添加主题特别有助于解决特定领域的情况。
+
+###### [【关于 DL to 文本匹配】 那些的你不知道的事](https://github.com/km1994/nlp_paper_study_text_match/tree/master/text_match_study/) 
+
 - [【关于 MPCNN】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_text_match/tree/master/text_match_study/Multi-PerspectiveSentenceSimilarityModelingwithCNN/)
   - 论文：Multi-Perspective Sentence Similarity Modeling with Convolution Neural Networks
 - [【关于 RE2】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_text_match/tree/master/text_match_study/Multi-RE2_study/)
@@ -154,20 +199,7 @@
   - 论文：Densely Interactive Inference Network
   - 会议：TACL2017
   - 模型主要包括五层：嵌入层（Embedding Layer）、编码层（Encoding Layer）、交互层（Interaction Layer ）、特征提取层（Feature Extraction Layer）和输出层（Output Layer）
-- [【关于 DC-BERT】 那些你不知道的事](https://github.com/km1994/nlp_paper_study_text_match/tree/master/QA_study/SIGIR2020_DCBert/)
-  - 论文名称：DC-BERT : DECOUPLING QUESTION AND DOCUMENT FOR EFFICIENT CONTEXTUAL ENCODING
-  - 阅读理由：Bert 在 QA 上面的应用
-  - 动机：Bert 无法处理传入问题的高吞吐量，每个问题都有大量检索到的文档；
-  - 论文方法：具有双重BERT模型的解耦上下文编码框架：
-    - 一个在线BERT，仅对问题进行一次编码；
-    - 一个正式的BERT，对所有文档进行预编码并缓存其编码；
-- [【关于 tBERT 】那些你不知道的事 ](https://github.com/km1994/nlp_paper_study_text_match/tree/master/QA_study/SIGIR2020_DCBert/)
-   - 论文：tBERT: Topic Models and BERT Joining Forces for Semantic Similarity Detection
-   - 会议：ACL2020
-   - 论文地址：https://www.aclweb.org/anthology/2020.acl-main.630/
-   - 论文代码：https://github.com/wuningxi/tBERT
-   - 动机：未存在将主题模型和BERT结合的方法。 语义相似度检测是自然语言的一项基本任务理解。添加主题信息对于以前的特征工程语义相似性模型和神经网络模型都是有用的其他任务。在那里目前还没有标准的方法将主题与预先训练的内容表示结合起来比如 BERT。
-   - 方法：我们提出了一种新颖的基于主题的基于BERT的语义相似度检测体系结构，并证明了我们的模型在不同的英语语言数据集上的性能优于强神经基线。我们发现在BERT中添加主题特别有助于解决特定领域的情况。
+
 
 ## 参考资料
 
